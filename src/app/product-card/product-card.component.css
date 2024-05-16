@@ -1,0 +1,56 @@
+/* General Styles */
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Product Card Styling */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  margin: 10px;
+  width: 250px;
+  height: 300px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif, "Gill Sans";
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+}
+
+.product-card a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.product-card img {
+
+}
+
+.product-card h3 {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.product-card p {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.product-info {
+  flex: 1; 
+}
+
+.price {
+  font-weight: bold;
+  color: orange;
+  text-align: end;
+}
+
+

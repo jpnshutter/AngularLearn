@@ -1,0 +1,39 @@
+p{
+  color: rgb(95, 66, 0);
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+
+}
+hover:p{
+  color: aqua;
+}
+#span{
+  font-size: 20px;
+  color: rgb(255, 147, 14);
+}
+
+main{
+  display: inline-block;
+  width: 100%;
+  min-height: 100vh;
+  padding-left: 10%;
+  padding-right: 10%;
+
+}
+#sidebar{
+  font-family: sans-serif;
+  padding: 10px;
+  border-right: 1px solid black;
+   width: 25%;
+   display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+  #sidebar{
+    display: none;
+
+  }
+}

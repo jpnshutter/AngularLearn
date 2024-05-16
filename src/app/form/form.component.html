@@ -1,0 +1,54 @@
+<form action="" [formGroup]="group">
+
+  <section style="display: flex; gap: 10px;  ">
+    <label for="name" >Name</label>
+    <input type="text" formControlName="name" appErrorHighlight [control]="group.controls['name']">
+
+    <label for="lastname" >Lastname</label>
+    <input type="text" formControlName="lastname" appErrorHighlight [control]="group.controls['lastname']">
+  </section>
+
+
+
+
+  <label for="age">Age</label>
+  <input type="number" [formControlName]="'age'" min="0" appErrorHighlight [control]="group.controls['age']">
+
+<!--
+  <label for="Date">Date</label>
+  <input type="datetime-local" [formControlName]="'date'"> -->
+
+  <label for="citizenId">CitizenId</label>
+  <input type="text" [formControlName]="'CitizenId'" appErrorHighlight [control]="group.controls['CitizenId']">
+
+  <label for="email">Email</label>
+  <input type="text" [formControlName]="'email'" appErrorHighlight [control]="group.controls['email']">
+
+  <label for="password">Password</label>
+  <input type="text" [formControlName]="'password'" appErrorHighlight [control]="group.controls['password']">
+
+
+  <!-- <div formArrayName="array">
+    <div *ngFor="let control of getArrayControl().controls index as i" >
+      <label [for]="'array'+i">{{i}} : </label>
+      <input type="text" [id]="'array'+i" [formControlName]="i">
+    </div>
+
+  </div> -->
+
+  <button [disabled]="!group.valid">Submit</button>
+
+
+
+</form>
+
+  <pre *appShowIfAllValid>Form Data: {{group.value | formatData}}</pre>
+
+  <pre >Confirm your Data: {{group.value | formatData}}</pre>
+
+
+
+
+
+
+

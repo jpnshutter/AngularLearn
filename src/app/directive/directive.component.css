@@ -1,0 +1,7 @@
+div[example] {
+  background-color: lightblue; /* Default style */
+}
+.custom-class {
+  font-weight: bold;
+  border: 1px solid blue;
+}

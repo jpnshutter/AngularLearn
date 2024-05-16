@@ -1,0 +1,18 @@
+<div class="product-card">
+  <a [routerLink]="[product?.id]">
+    <section>
+      <img src="https://sg-media.apjonlinecdn.com/magefan_blog/5-best-hp-wireless-printers-hero.jpg"
+           alt="{{ product?.name }}"
+           sizes="100vw"
+           style="border-radius: 5px;"
+           >
+    </section>
+    <div class="product-info">
+      <h3>{{ product?.name }}</h3>
+      <p>{{ product?.description }}</p>
+      <span class="price" >
+        <span style="font-size: 13px; ">฿</span> {{ product?.price }}
+      </span>
+    </div>
+  </a>
+</div>
