@@ -17,9 +17,8 @@ hover:p{
 main{
   display: inline-block;
   width: 100%;
-  min-height: 100vh;
-  padding-left: 10%;
-  padding-right: 10%;
+
+  
 
 }
 #sidebar{
@@ -30,6 +29,9 @@ main{
    display: none;
 }
 
+section{
+  height: calc(100vh - 100px);
+}
 
 @media only screen and (max-width: 600px) {
   #sidebar{

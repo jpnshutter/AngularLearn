@@ -1,10 +1,12 @@
 nav {
-  top: 0;
+  top:0px;
   z-index: 10;
-  position: sticky;
+  position:sticky;
   background-color: white;
   font-family: sans-serif, "Gill Sans";
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  height: 40px;
+  
 }
 
 ul {
@@ -15,6 +17,8 @@ ul {
   padding: 0;
   margin: 0;
   list-style-type: none;
+  
+
 }
 
 li {
@@ -23,11 +27,12 @@ li {
 
 a {
   text-decoration: none;
-  color: rgb(235, 181, 139);
+  color: #FFA364;
   padding: 10px 15px;
   transition: all 0.3s ease-in-out;
   display: block;
   border-radius: 5px;
+  white-space:nowrap;
 }
 
 span {
@@ -35,10 +40,18 @@ span {
 }
 
 a:hover {
-  color: rgb(255, 145, 0);
+  color: #FC7643;
 }
 
 .active {
   background-color: rgb(196, 88, 0);
   color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  ul{
+    overflow-x: scroll;
+    padding-left: 30px;
+    
+  }
 }

@@ -1,0 +1,49 @@
+<main>
+    
+    <section>
+        <div class="top">
+            <div class="btn"  (click)="onSalesClick($event)" >Dashboard</div>
+            <div class="btn" (click)="onOrdersClick($event)">Orders</div>
+            <div class="btn">Product</div>
+            <div class="btn">Customer</div>
+            <div class="btn">Payment</div>
+        </div>
+        <div class="buttom">
+            <div class="btn">Help</div>
+        </div>
+        
+    </section>
+    <div id="main">
+        <div *ngIf="showSalesChart" id="chart" #chartRef>
+
+        </div>
+
+        <div *ngIf="!showSalesChart">
+            <div id="head" style="display: flex; justify-content: space-between;">
+                <h2>HIGHLIGHTS</h2>
+                <h2 >Sorts</h2>
+            </div>
+            
+            <div *ngFor="let a of cart['carts'] " id="cart" >
+ 
+                    <h1>{{(a['id'] |json) }}</h1>
+                    <h1>Userid : {{(a['userId'] |json) }}</h1>
+               
+    
+                    <h1>Discounted Total {{(a['discountedTotal'] |currency) }}</h1>
+                    <h1>Total {{(a['total'] |currency) }}</h1>
+ 
+                   
+            </div>
+        </div>
+    </div>
+    
+</main>
+
+
+
+
+
+
+    
+
