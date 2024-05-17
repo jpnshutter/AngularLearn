@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CatService } from '../cat.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, JsonPipe } from '@angular/common';
-
+import {MatIconModule} from '@angular/material/icon'
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   providers: [CatService],
-  imports: [HttpClientModule, FormsModule, JsonPipe, CommonModule],
+  imports: [HttpClientModule, FormsModule, JsonPipe, CommonModule,MatIconModule],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
@@ -16,8 +16,9 @@ export class DashboardComponent implements OnInit {
   chartOptions: any;
   showSalesChart = true; // Initially set to true to show the dashboard
   cart: any;
+  selectedSortOption = 'ascending';
 
-  constructor(private catService: CatService) {}
+  constructor(private catService: CatService, private cdr: ChangeDetectorRef) {}
 
   async ngOnInit() {
     this.chartOptions = await this.catService.getSalesChart(); 
@@ -27,22 +28,27 @@ export class DashboardComponent implements OnInit {
     });
 
     if (this.showSalesChart) {
-      this.renderChart();
+      await this.renderChart();
     }
   }
 
   async onSalesClick(event: Event) {
+    
     event.preventDefault();
+    console.log('test1');
     if (!this.showSalesChart) {
       this.showSalesChart = true;
+      this.cdr.detectChanges(); // Ensure Angular detects the change
       await this.renderChart();
     }
   }
 
   onOrdersClick(event: Event) {
     event.preventDefault();
+    console.log('test2');
     if (this.showSalesChart) {
       this.showSalesChart = false;
+      this.cdr.detectChanges(); 
     }
   }
 
@@ -59,4 +65,22 @@ export class DashboardComponent implements OnInit {
       console.error("Window object is not defined or showSalesChart is false");
     }
   }
+
+  sortDataByTotal() {
+    if (this.cart && this.cart['carts']) {
+      this.cart['carts'].sort((a: { [x: string]: string; }, b: { [x: string]: string; }) => {
+        const totalA = parseFloat(a['total']);
+        const totalB = parseFloat(b['total']);
+        if (this.selectedSortOption === 'ascending') {
+          return totalA - totalB; 
+        } else if (this.selectedSortOption === 'descending') {
+          return totalB - totalA; 
+        } else {
+          return 0; 
+        }
+      });
+    }
+  }
+  
+
 }

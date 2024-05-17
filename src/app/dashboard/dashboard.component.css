@@ -30,6 +30,8 @@ section{
 
 }
 
+
+
 #cart{
     display: flex;
     flex-direction: column;
@@ -43,8 +45,10 @@ section{
     width: 100%;
     height: 50px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    gap: 10px;
+
+    padding-left: 15%;
+    align-items: center;
     text-align: center;
     font-size: 16px;
     /* transition: all 0.1s cubic-bezier(0, 0.82, 0.3, 0.98); */
@@ -61,11 +65,25 @@ section{
     color: #FFEBD2;
 }
 
+
+
+#filter:hover{
+    color: #AF4F41;
+}
+
 h2{
     font-size: 2rem;
     padding: 0px 20px ;
     color: #FC7643;
 }
+
+select{
+    height: 20px;
+    border: 0.1;
+    color: #FC7643;
+    border: 2px solid #FFEBD2;
+}
+
 @media only screen and (max-width: 600px) {
     section{
       display: none;
